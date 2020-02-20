@@ -1,0 +1,70 @@
+﻿@using ShopPost
+@using ShopPost.Models
+@model IEnumerable<ShopPost.Models.Camiseta>
+
+@{
+    ViewData["Title"] = "CompraCamisetas";
+}
+
+<h1>Valore ahora estas camisetas!</h1>
+<h2>@ViewData["msj"]</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Disgusta.
+            </th>
+            <th>
+                Gusta.
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Imagen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Precio)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+
+            <td>
+                    <a  asp-route-dislike="dislike" asp-route-camiseta="@item.Nombre" asp-route-count="1"><i style="color:black; font-size:25px;" class="fas fa-times"></i>
+                    </a>
+                
+            </td>
+            <td>
+                    <a  asp-route-like="like" asp-route-camiseta="@item.Nombre" asp-route-count="1"> <i style="color:red; font-size:25px;" class="fas fa-heart"></i></a>
+              
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                <img style="height:120px;width:120px" src="~/Assets/@Html.DisplayFor(modelItem => item.Imagen)" alt="Camiseta" />
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+
+            <td style="color:red; font-size:20px">
+
+                @Html.DisplayFor(modelItem => item.Precio)€
+            </td>
+
+        </tr>
+        }
+    </tbody>
+</table>

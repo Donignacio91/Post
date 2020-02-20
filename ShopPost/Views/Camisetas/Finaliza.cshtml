@@ -1,0 +1,43 @@
+﻿@model ShopPost.Models.Camiseta
+
+@{
+    ViewData["Title"] = "Finaliza";
+}
+
+<h1>Finaliza</h1>
+
+<div>
+    <h4>Camiseta</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Imagen)
+        </dt>
+        <dd class="col-sm-10">
+            <img style="height:120px;width:120px" src="~/Assets/@Html.DisplayFor(Model => Model.Imagen)" alt="Camiseta" />
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Precio)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Precio)
+        </dd>
+    </dl>
+</div>
+<div>
+
+    <a asp-action="CompraCamisetas">Back to List</a>
+</div>
